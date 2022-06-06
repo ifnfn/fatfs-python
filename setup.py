@@ -26,7 +26,7 @@ def no_cythonize(extensions, **_ignore):
 
 
 extensions = [
-    Extension("wrapper", ["fatfs/wrapper.pyx", "fatfs/diskiocheck.c", "foreign/fatfs/source/ff.c", "foreign/fatfs/source/ffsystem.c", "foreign/fatfs/source/ffunicode.c"], include_dirs=["foreign/fatfs/source"]),
+    Extension("wrapper", ["efatfs/wrapper.pyx", "efatfs/diskiocheck.c", "foreign/fatfs/source/ff.c", "foreign/fatfs/source/ffsystem.c", "foreign/fatfs/source/ffunicode.c"], include_dirs=["foreign/fatfs/source"]),
 ]
 
 CYTHONIZE = bool(int(os.getenv("CYTHONIZE", 0))) and cythonize is not None
@@ -41,14 +41,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name='fatfs',
-    version="0.0.3",
+    name='efatfs',
+    version="0.0.7",
     author="Ladislav Laska",
     author_email="krakonos@krakonos.org",
     description="A wrapper around ChaN's FatFS library for FAT filesystem manipulation.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    ext_package='fatfs',
+    ext_package='efatfs',
     ext_modules=extensions,
     url="https://github.com/krakonos/fatfs-python",
     #packages=['pyfatfs', 'pyfatfs.tests'],

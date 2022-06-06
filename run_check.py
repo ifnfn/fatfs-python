@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-import fatfs
+import efatfs
 
-fatfs.check()
+efatfs.check()
 
-fatfs.testopen()
+efatfs.testopen()

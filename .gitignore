@@ -1,0 +1,9 @@
+.vscode
+**/*.pyc
+build
+*egg*
+tags
+**/__pycache__
+efatfs/wrapper.c
+efatfs/*.so
+dist

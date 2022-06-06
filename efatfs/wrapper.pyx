@@ -1,5 +1,5 @@
-from fatfs.ff cimport *
-from fatfs.diskio cimport *
+from efatfs.ff cimport *
+from efatfs.diskio cimport *
 
 #from pyfatfs.diskio import RamDisk
 
