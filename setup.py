@@ -50,7 +50,7 @@ setup(
     long_description_content_type="text/markdown",
     ext_package='efatfs',
     ext_modules=extensions,
-    url="https://github.com/krakonos/fatfs-python",
+    url="https://github.com/ifnfn/fatfs-python",
     #packages=['pyfatfs', 'pyfatfs.tests'],
     packages=find_packages(),
     install_requires=['cython'],
