@@ -6207,7 +6207,11 @@ FRESULT f_mkfs (
 			st_word(buf + BPB_FATSz16, (WORD)sz_fat);	/* FAT size [sector] */
 			buf[BS_DrvNum] = 0x80;						/* Drive number (for int13) */
 			buf[BS_BootSig] = 0x29;						/* Extended boot signature */
-			memcpy(buf + BS_VolLab, "NO NAME    " "FAT     ", 19);	/* Volume label, FAT signature */
+			if (fsty == FS_FAT16) {
+				memcpy(buf + BS_VolLab, "NO NAME    " "FAT16   ", 19);  /* Volume label, FAT16 signature */
+			} else {
+				memcpy(buf + BS_VolLab, "NO NAME    " "FAT12   ", 19);	/* Volume label, FAT12 signature */
+			}
 		}
 		st_word(buf + BS_55AA, 0xAA55);					/* Signature (offset is fixed here regardless of sector size) */
 		if (disk_write(pdrv, buf, b_vol, 1) != RES_OK) LEAVE_MKFS(FR_DISK_ERR);	/* Write it to the VBR sector */
